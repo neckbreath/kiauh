@@ -79,7 +79,7 @@ update_klipper(){
     status_msg "Checking for possible new dependencies ..."
     PKGLIST=$(grep "PKGLIST=" ~/klipper/scripts/install-octopi.sh | cut -d'"' -f2- | cut -d'"' -f1 | cut -d"}" -f2)
     PYTHONDIR="${HOME}/klippy-env"
-    sudo apt-get update && sudo apt-get install --yes $PKGLIST
+    sudo pacman -Syu $PKGLIST
     $PYTHONDIR/bin/pip install -r ~/klipper/scripts/klippy-requirements.txt
     ok_msg "Dependencies already met or have been installed!"
     ok_msg "Update complete!"
