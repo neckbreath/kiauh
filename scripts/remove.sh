@@ -19,7 +19,7 @@ remove_klipper(){
     if [ -e /etc/systemd/system/klipper.service ]; then
       status_msg "Removing Klipper Service ..."
       sudo rm -rf /etc/systemd/system/klipper.service
-      sudo update-rc.d -f klipper remove
+      sudo systemctl disable klipper
       sudo systemctl daemon-reload
       ok_msg "Klipper Service removed!"
     fi
@@ -256,7 +256,7 @@ remove_octoprint(){
     stop_octoprint
     if [[ -e $OCTOPRINT_SERVICE1 || -e $OCTOPRINT_SERVICE2 ]]; then
       status_msg "Removing OctoPrint Service ..."
-      sudo update-rc.d -f octoprint remove
+      sudo systemctl disable octoprint
       sudo rm -rf $OCTOPRINT_SERVICE1 $OCTOPRINT_SERVICE2 && ok_msg "OctoPrint Service removed!"
     fi
     if [[ -d $OCTOPRINT_DIR || -d $OCTOPRINT_CFG_DIR ]]; then
