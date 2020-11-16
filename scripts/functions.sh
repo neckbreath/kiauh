@@ -142,7 +142,7 @@ read_octoprint_service_status(){
 restart_nginx(){
   if [ -e /etc/init.d/nginx ]; then
     status_msg "Restarting Nginx Service ..."
-    sudo /etc/init.d/nginx restart && sleep 2 && ok_msg "Nginx Service restarted!"
+    sudo systemctl restart nginx && sleep 2 && ok_msg "Nginx Service restarted!"
   fi
 }
 
