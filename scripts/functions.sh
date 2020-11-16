@@ -164,7 +164,7 @@ dependency_check(){
       echo -e "${cyan}● $element ${default}"
     done
     echo
-    sudo apt-get install ${inst[@]} -y
+    sudo pacman -Syu ${inst[@]}
     ok_msg "Dependencies installed!"
     #clearing the array
     unset inst
