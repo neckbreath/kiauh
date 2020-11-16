@@ -23,15 +23,15 @@ check_klipper()
 # Step 2: Install packages
 install_packages()
 {
-    PKGLIST="python3-virtualenv python3-dev python3-tornado"
+    PKGLIST="python-virtualenv python-tornado"
 
     # Update system package info
     report_status "Running apt-get update..."
-    sudo apt-get update
+    sudo pacman -Syy
 
     # Install desired packages
     report_status "Installing packages..."
-    sudo apt-get install --yes ${PKGLIST}
+    sudo pacman -S ${PKGLIST}
 }
 
 # Step 3: Create python virtual environment
